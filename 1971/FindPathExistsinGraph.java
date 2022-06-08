@@ -1,8 +1,10 @@
+
+//=====================DFS======================================//
+
 class Solution {
     public boolean validPath(int n, int[][] edges, int start, int end) {
      
         /************ Building graph  Start ***************/
-		 
 	        ArrayList<Integer>[] graph = new ArrayList[n];
 	        for(int i = 0; i < n; i++){
 	            graph[i] = new ArrayList<>();
@@ -10,9 +12,8 @@ class Solution {
 	        for(int[] edge : edges){
 	            graph[edge[0]].add(edge[1]);
 	            graph[edge[1]].add(edge[0]);
-	        }
-			
-			/************ Building graph  End ***************/
+	        }	
+	/************ Building graph  End ***************/
 			
 	        boolean[] visited = new boolean[n];
 	        Stack<Integer> stack= new Stack<Integer>();
@@ -29,5 +30,5 @@ class Solution {
 	            }
 	        }
 	        return false;  
-}
+	}
 }
