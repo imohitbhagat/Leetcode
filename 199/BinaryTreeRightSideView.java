@@ -13,6 +13,9 @@
  *     }
  * }
  */
+
+// Iterative approach
+
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         
@@ -46,3 +49,27 @@ class Solution {
 	
     }
 }
+
+//Recursive approach
+
+List<Integer> result = new ArrayList<>();
+
+	public List<Integer> rightSideView2(TreeNode root) {
+
+		levelOrder(root, 0);
+		return result;
+	}
+
+	void levelOrder(TreeNode node, int level) {
+		if (node == null) {
+			return;
+		}
+
+		if (result.size() == level) {
+			result.add(node.val);
+		}
+
+		levelOrder(node.right, level + 1);
+		levelOrder(node.left, level + 1);
+	}
+
